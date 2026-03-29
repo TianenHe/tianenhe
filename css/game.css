@@ -1,0 +1,44 @@
+/* ===== GAME PAGE ===== */
+
+.game-header { padding-bottom: 80px; }
+
+.game-header__note {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  max-width: 480px;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.game-banner {
+  margin: 0 40px 0;
+  padding: 20px 28px;
+  background: var(--gold-light);
+  border: 1.5px solid #f5e0a0;
+  border-radius: 6px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 32px;
+}
+
+.game-banner__icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+
+.game-banner__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #a07800;
+}
+
+.game-banner__sub {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .game-banner { margin: 24px 20px 0; }
+}

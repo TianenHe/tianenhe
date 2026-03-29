@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Tianen He</title>
+  <link rel="stylesheet" href="css/global.css"/>
+  <link rel="stylesheet" href="css/contact.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="inner-nav">
+    <a href="index.html" class="inner-nav__logo">T<span>.</span>He</a>
+    <ul class="inner-nav__links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="illustration.html">Illustration</a></li>
+      <li><a href="game.html">Game Design</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <header class="page-header">
+      <p class="page-header__eyebrow">Get In Touch</p>
+      <h1 class="page-header__title">Let's<br/><em>Talk</em></h1>
+      <div class="page-header__deco">C</div>
+    </header>
+
+    <section class="contact-layout">
+
+      <!-- Left: Info -->
+      <div class="contact-info fade-in">
+        <p class="contact-intro">
+          Whether you're interested in collaborating, commissioning work, or just want to say hello — I'd love to hear from you.
+        </p>
+
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="contact-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M2 8l10 7 10-7"/>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-card__label">Email</p>
+              <a href="mailto:hello@tianenhe.art" class="contact-card__value">hello@tianenhe.art</a>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card__icon contact-card__icon--gold">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                <circle cx="12" cy="9" r="2.5"/>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-card__label">Location</p>
+              <p class="contact-card__value">Washington D.C., USA</p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+              </svg>
+            </div>
+            <div>
+              <p class="contact-card__label">Website</p>
+              <p class="contact-card__value">tianenhe.art</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-availability">
+          <span class="availability-dot"></span>
+          <span>Available for freelance &amp; commissions</span>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-form-wrap fade-in">
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Doe" required/>
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required/>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Collaboration / Commission / Hello"/>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell me about your project or idea..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <span>Send Message</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/>
+            </svg>
+          </button>
+          <p class="form-note">* I typically respond within 1–2 business days.</p>
+        </form>
+
+        <div class="form-success" id="formSuccess" style="display:none;">
+          <div class="success-icon">✦</div>
+          <h3>Message Sent!</h3>
+          <p>Thank you for reaching out. I'll get back to you soon.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="site-footer">
+      <span class="site-footer__name">Tianen He</span>
+      <div class="site-footer__contact">
+        <a href="mailto:hello@tianenhe.art">hello@tianenhe.art</a>
+        <span>Washington D.C.</span>
+        <span>tianenhe.art</span>
+      </div>
+      <span class="site-footer__copy">© 2026 Tianen He. All rights reserved.</span>
+    </footer>
+
+  </div>
+
+  <script src="js/inner.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
