@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -9,6 +9,78 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Limelight&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Override masonry with clean horizontal grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 40px;
+      columns: unset;
+    }
+    .portfolio-item {
+      break-inside: unset;
+      margin-bottom: 0;
+    }
+    .portfolio-item__img,
+    .portfolio-item video {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      background: #f9f9f9;
+      cursor: pointer;
+    }
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox__inner {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox__inner img,
+    .lightbox__inner video {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+    .lightbox__close {
+      position: fixed;
+      top: 20px; right: 24px;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: white;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001;
+    }
+    .lightbox__close:hover { background: #fe0faa; }
+    @media (max-width: 900px) {
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); padding: 24px 20px; }
+    }
+    @media (max-width: 500px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
   <nav class="inner-nav">
@@ -35,73 +107,249 @@
     </div>
     <section class="portfolio-grid" id="portfolioGrid">
 
-      <!-- CHARACTER DESIGN -->
-      <div class="portfolio-item fade-in" data-category="character"><img class="portfolio-item__img" src="images/character-01.png" alt="Character 01" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character 01</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="character"><img class="portfolio-item__img" src="images/character-02.png" alt="Character 02" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character 02</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="character"><img class="portfolio-item__img" src="images/character-03.png" alt="Character 03" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character 03</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="character"><img class="portfolio-item__img" src="images/character-04.png" alt="Character 04" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character 04</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="character"><img class="portfolio-item__img" src="images/character-05.png" alt="Character 05" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character 05</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="character"><img class="portfolio-item__img" src="images/character-06.png" alt="Character 06" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character 06</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="character"><img class="portfolio-item__img" src="images/character-07.png" alt="Character 07" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character 07</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="character"><img class="portfolio-item__img" src="images/character-08.png" alt="Character 08" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character 08</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="character"><img class="portfolio-item__img" src="images/character-09.png" alt="Character 09" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character 09</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="character"><img class="portfolio-item__img" src="images/character-10.png" alt="Character 10" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character 10</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="character"><img class="portfolio-item__img" src="images/character-11.png" alt="Character 11" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character 11</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="character"><img class="portfolio-item__img" src="images/character-12.png" alt="Character 12" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character 12</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="character"><img class="portfolio-item__img" src="images/character-2-1.png" alt="Character Series 2-1" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character Series 2 — 01</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="character"><img class="portfolio-item__img" src="images/character-2-2.png" alt="Character Series 2-2" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character Series 2 — 02</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="character"><img class="portfolio-item__img" src="images/character-2-3.png" alt="Character Series 2-3" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character Series 2 — 03</h3><p class="portfolio-item__year">2024</p></div></div>
-
       <!-- TRADITIONAL -->
-      <div class="portfolio-item fade-in" data-category="traditional"><img class="portfolio-item__img" src="images/drawing_1.jpg" alt="Drawing 1" loading="lazy"/><div class="portfolio-item__info"><span class="pill pill--gold">Traditional</span><h3 class="portfolio-item__title">Drawing 1</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="traditional"><img class="portfolio-item__img" src="images/drawing-2.jpg" alt="Drawing 2" loading="lazy"/><div class="portfolio-item__info"><span class="pill pill--gold">Traditional</span><h3 class="portfolio-item__title">Drawing 2</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="traditional"><img class="portfolio-item__img" src="images/drawing-3.jpg" alt="Drawing 3" loading="lazy"/><div class="portfolio-item__info"><span class="pill pill--gold">Traditional</span><h3 class="portfolio-item__title">Drawing 3</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="traditional"><img class="portfolio-item__img" src="images/oil_painting_1.jpg" alt="Oil Painting 1" loading="lazy"/><div class="portfolio-item__info"><span class="pill pill--gold">Traditional</span><h3 class="portfolio-item__title">Oil Painting 1</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="traditional"><img class="portfolio-item__img" src="images/oil_painting_2.jpg" alt="Oil Painting 2" loading="lazy"/><div class="portfolio-item__info"><span class="pill pill--gold">Traditional</span><h3 class="portfolio-item__title">Oil Painting 2</h3><p class="portfolio-item__year">2024</p></div></div>
+      <div class="portfolio-item fade-in" data-category="traditional">
+        <img class="portfolio-item__img" src="images/drawing_1.jpg" alt="Drawing 1" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill pill--gold">Traditional</span><h3 class="portfolio-item__title">Drawing 1</h3><p class="portfolio-item__year">2025</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="traditional">
+        <img class="portfolio-item__img" src="images/drawing-2.jpg" alt="Drawing 2" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill pill--gold">Traditional</span><h3 class="portfolio-item__title">Drawing 2</h3><p class="portfolio-item__year">2025</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="traditional">
+        <img class="portfolio-item__img" src="images/drawing-3.jpg" alt="Drawing 3" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill pill--gold">Traditional</span><h3 class="portfolio-item__title">Drawing 3</h3><p class="portfolio-item__year">2024</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="traditional">
+        <img class="portfolio-item__img" src="images/oil_painting_1.jpg" alt="Oil Painting 1" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill pill--gold">Traditional</span><h3 class="portfolio-item__title">Oil Painting 1</h3><p class="portfolio-item__year">2025</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="traditional">
+        <img class="portfolio-item__img" src="images/oil_painting_2.jpg" alt="Oil Painting 2" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill pill--gold">Traditional</span><h3 class="portfolio-item__title">Oil Painting 2</h3><p class="portfolio-item__year">2025</p></div>
+      </div>
+
+      <!-- CHARACTER DESIGN -->
+      <div class="portfolio-item fade-in" data-category="character digital">
+        <img class="portfolio-item__img" src="images/character-2-1.png" alt="Character Sheet 1" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character Sheet 01</h3><p class="portfolio-item__year">2025</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="character digital">
+        <img class="portfolio-item__img" src="images/character-2-2.png" alt="Character Sheet 2" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character Sheet 02</h3><p class="portfolio-item__year">2025</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="character digital">
+        <img class="portfolio-item__img" src="images/character-2-3.png" alt="Character Sheet 3" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Character Design</span><h3 class="portfolio-item__title">Character Sheet 03</h3><p class="portfolio-item__year">2025</p></div>
+      </div>
+
+      <!-- DIGITAL -->
+      <div class="portfolio-item fade-in" data-category="character digital">
+        <img class="portfolio-item__img" src="images/character-01.png" alt="Character 01" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Digital</span><h3 class="portfolio-item__title">Character 01</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="character digital">
+        <img class="portfolio-item__img" src="images/character-02.png" alt="Character 02" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Digital</span><h3 class="portfolio-item__title">Character 02</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="character digital">
+        <img class="portfolio-item__img" src="images/character-03.png" alt="Character 03" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Digital</span><h3 class="portfolio-item__title">Character 03</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="character digital">
+        <img class="portfolio-item__img" src="images/character-04.png" alt="Character 04" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Digital</span><h3 class="portfolio-item__title">Character 04</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="character digital">
+        <img class="portfolio-item__img" src="images/character-05.png" alt="Character 05" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Digital</span><h3 class="portfolio-item__title">Character 05</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="character digital">
+        <img class="portfolio-item__img" src="images/character-06.png" alt="Character 06" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Digital</span><h3 class="portfolio-item__title">Character 06</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="character digital">
+        <img class="portfolio-item__img" src="images/character-07.png" alt="Character 07" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Digital</span><h3 class="portfolio-item__title">Character 07</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="character digital">
+        <img class="portfolio-item__img" src="images/character-08.png" alt="Character 08" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Digital</span><h3 class="portfolio-item__title">Character 08</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="character digital">
+        <img class="portfolio-item__img" src="images/character-09.png" alt="Character 09" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Digital</span><h3 class="portfolio-item__title">Character 09</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="character digital">
+        <img class="portfolio-item__img" src="images/character-10.png" alt="Character 10" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Digital</span><h3 class="portfolio-item__title">Character 10</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="character digital">
+        <img class="portfolio-item__img" src="images/character-11.png" alt="Character 11" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Digital</span><h3 class="portfolio-item__title">Character 11</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="character digital">
+        <img class="portfolio-item__img" src="images/character-12.png" alt="Character 12" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Digital</span><h3 class="portfolio-item__title">Character 12</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
 
       <!-- PRODUCT DESIGN -->
-      <div class="portfolio-item fade-in" data-category="product"><img class="portfolio-item__img" src="images/product-1-1-page-001.jpg" alt="Product 1-1" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 1 — 1</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="product"><img class="portfolio-item__img" src="images/product-1-2-page-001.jpg" alt="Product 1-2" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 1 — 2</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="product"><img class="portfolio-item__img" src="images/product-1-3-page-001.jpg" alt="Product 1-3" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 1 — 3</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="product"><img class="portfolio-item__img" src="images/product-2-1.jpg" alt="Product 2-1" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 2 — 1</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="product"><img class="portfolio-item__img" src="images/product-2-2-page-001.jpg" alt="Product 2-2" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 2 — 2</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="product"><img class="portfolio-item__img" src="images/product-3.jpg" alt="Product 3" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 3</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="product"><img class="portfolio-item__img" src="images/product-4-page-001.jpg" alt="Product 4-1" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 4 — 1</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="product"><img class="portfolio-item__img" src="images/product-4-page-002.jpg" alt="Product 4-2" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 4 — 2</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="product"><img class="portfolio-item__img" src="images/product-4-page-003.jpg" alt="Product 4-3" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 4 — 3</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="product"><img class="portfolio-item__img" src="images/product-4-page-004.jpg" alt="Product 4-4" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 4 — 4</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="product"><img class="portfolio-item__img" src="images/product-4-page-005.jpg" alt="Product 4-5" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 4 — 5</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="product"><img class="portfolio-item__img" src="images/product-4-page-006.jpg" alt="Product 4-6" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 4 — 6</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="product"><img class="portfolio-item__img" src="images/prduct-5-page-001.jpg" alt="Product 5" loading="lazy"/><div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 5</h3><p class="portfolio-item__year">2024</p></div></div>
+      <div class="portfolio-item fade-in" data-category="product digital">
+        <img class="portfolio-item__img" src="images/product-1-1-page-001.jpg" alt="Product 1-1" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 1 — 1</h3><p class="portfolio-item__year">2024</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="product digital">
+        <img class="portfolio-item__img" src="images/product-1-2-page-001.jpg" alt="Product 1-2" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 1 — 2</h3><p class="portfolio-item__year">2024</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="product digital">
+        <img class="portfolio-item__img" src="images/product-1-3-page-001.jpg" alt="Product 1-3" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 1 — 3</h3><p class="portfolio-item__year">2024</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="product digital">
+        <img class="portfolio-item__img" src="images/product-2-1.png" alt="Product 2-1" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 2 — 1</h3><p class="portfolio-item__year">2024</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="product digital">
+        <img class="portfolio-item__img" src="images/product-2-2-page-001.jpg" alt="Product 2-2" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 2 — 2</h3><p class="portfolio-item__year">2024</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="product digital">
+        <img class="portfolio-item__img" src="images/product-3.jpg" alt="Product 3" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 3</h3><p class="portfolio-item__year">2024</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="product digital">
+        <img class="portfolio-item__img" src="images/product-4-page-001.jpg" alt="Product 4-1" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 4 — 1</h3><p class="portfolio-item__year">2025</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="product digital">
+        <img class="portfolio-item__img" src="images/product-4-page-002.jpg" alt="Product 4-2" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 4 — 2</h3><p class="portfolio-item__year">2025</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="product digital">
+        <img class="portfolio-item__img" src="images/product-4-page-003.jpg" alt="Product 4-3" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 4 — 3</h3><p class="portfolio-item__year">2025</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="product digital">
+        <img class="portfolio-item__img" src="images/product-4-page-004.jpg" alt="Product 4-4" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 4 — 4</h3><p class="portfolio-item__year">2025</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="product digital">
+        <img class="portfolio-item__img" src="images/product-4-page-005.jpg" alt="Product 4-5" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 4 — 5</h3><p class="portfolio-item__year">2025</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="product digital">
+        <img class="portfolio-item__img" src="images/product-4-page-006.jpg" alt="Product 4-6" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 4 — 6</h3><p class="portfolio-item__year">2025</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="product digital">
+        <img class="portfolio-item__img" src="images/prduct-5-page-001.jpg" alt="Product 5" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill">Product Design</span><h3 class="portfolio-item__title">Product 5</h3><p class="portfolio-item__year">2024</p></div>
+      </div>
 
       <!-- AE / BLENDER -->
-      <div class="portfolio-item fade-in" data-category="software"><img class="portfolio-item__img" src="images/ae-2-1.gif" alt="AE Animation 1" loading="lazy"/><div class="portfolio-item__info"><span class="pill pill--gold">After Effects</span><h3 class="portfolio-item__title">Animation 01</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="software"><img class="portfolio-item__img" src="images/ae-2-2.gif" alt="AE Animation 2" loading="lazy"/><div class="portfolio-item__info"><span class="pill pill--gold">After Effects</span><h3 class="portfolio-item__title">Animation 02</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="software"><img class="portfolio-item__img" src="images/ae-2-3.gif" alt="AE Animation 3" loading="lazy"/><div class="portfolio-item__info"><span class="pill pill--gold">After Effects</span><h3 class="portfolio-item__title">Animation 03</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="software"><img class="portfolio-item__img" src="images/ae-2-4.gif" alt="AE Animation 4" loading="lazy"/><div class="portfolio-item__info"><span class="pill pill--gold">After Effects</span><h3 class="portfolio-item__title">Animation 04</h3><p class="portfolio-item__year">2024</p></div></div>
-      <div class="portfolio-item fade-in" data-category="software"><video class="portfolio-item__img" autoplay muted loop playsinline><source src="images/Blender-Tianen-He.mp4" type="video/mp4"/></video><div class="portfolio-item__info"><span class="pill pill--gold">Blender</span><h3 class="portfolio-item__title">Blender 3D</h3><p class="portfolio-item__year">2024</p></div></div>
+      <div class="portfolio-item fade-in" data-category="software">
+        <img class="portfolio-item__img" src="images/ae-2-1.gif" alt="AE Animation 1" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill pill--gold">After Effects</span><h3 class="portfolio-item__title">Animation 01</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="software">
+        <img class="portfolio-item__img" src="images/ae-2-2.gif" alt="AE Animation 2" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill pill--gold">After Effects</span><h3 class="portfolio-item__title">Animation 02</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="software">
+        <img class="portfolio-item__img" src="images/ae-2-3.gif" alt="AE Animation 3" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill pill--gold">After Effects</span><h3 class="portfolio-item__title">Animation 03</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="software">
+        <img class="portfolio-item__img" src="images/ae-2-4.gif" alt="AE Animation 4" loading="lazy"/>
+        <div class="portfolio-item__info"><span class="pill pill--gold">After Effects</span><h3 class="portfolio-item__title">Animation 04</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
+      <div class="portfolio-item fade-in" data-category="software" id="blenderItem">
+        <video class="portfolio-item__img" autoplay muted loop playsinline id="blenderThumb">
+          <source src="images/Blender-Tianen-He.mp4" type="video/mp4"/>
+        </video>
+        <div class="portfolio-item__info"><span class="pill pill--gold">Blender</span><h3 class="portfolio-item__title">Blender 3D</h3><p class="portfolio-item__year">2026</p></div>
+      </div>
 
     </section>
 
+    <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
+      <button class="lightbox__close" id="lightboxClose">✕</button>
       <div class="lightbox__inner">
-        <button class="lightbox__close" id="lightboxClose">✕</button>
-        <img class="lightbox__img" id="lightboxImg" src="" alt=""/>
-        <div class="lightbox__caption"><h3 class="lightbox__title" id="lightboxTitle"></h3></div>
+        <img id="lightboxImg" src="" alt="" style="display:none;"/>
+        <video id="lightboxVideo" controls autoplay loop style="display:none;max-width:90vw;max-height:85vh;">
+          <source src="images/Blender-Tianen-He.mp4" type="video/mp4"/>
+        </video>
       </div>
     </div>
 
     <footer class="site-footer">
       <span class="site-footer__name">Tianen He</span>
       <div class="site-footer__contact">
-        <a href="mailto:hello@tianenhe.art">hello@tianenhe.art</a>
-        <span>Washington D.C.</span>
+        <a href="mailto:tianenhe9@gmail.com">tianenhe9@gmail.com</a>
+        <span>Baltimore, Maryland, United States</span>
         <span>tianenhe.art</span>
       </div>
       <span class="site-footer__copy">© 2026 Tianen He. All rights reserved.</span>
     </footer>
   </div>
+
   <script src="js/inner.js"></script>
-  <script src="js/portfolio.js"></script>
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const items = document.querySelectorAll('.portfolio-item');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const filter = tab.dataset.filter;
+        items.forEach(item => {
+          const cats = item.dataset.category.split(' ');
+          if (filter === 'all' || cats.includes(filter)) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbVideo = document.getElementById('lightboxVideo');
+    const lbClose = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.portfolio-item img.portfolio-item__img').forEach(img => {
+      img.addEventListener('click', () => {
+        lbImg.src = img.src;
+        lbImg.style.display = 'block';
+        lbVideo.style.display = 'none';
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const blenderThumb = document.getElementById('blenderThumb');
+    if (blenderThumb) {
+      blenderThumb.addEventListener('click', () => {
+        lbImg.style.display = 'none';
+        lbVideo.style.display = 'block';
+        lbVideo.play();
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lbVideo.pause();
+      document.body.style.overflow = '';
+    }
+  </script>
 </body>
 </html>
